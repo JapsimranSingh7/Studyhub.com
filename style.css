@@ -1,0 +1,90 @@
+:root{
+  --bg: #0b0c10;
+  --card: #111217;
+  --muted: #9aa3b2;
+  --text: #e6eaf2;
+  --brand: #5b8cff;
+  --accent: #7ce5b0;
+  --ring: rgba(123,164,255,.35);
+}
+:root.light{
+  --bg:#f7f8fc; --card:#ffffff; --text:#0f172a; --muted:#606b85; --brand:#3b82f6; --accent:#10b981; --ring:rgba(59,130,246,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+.container{max-width:1152px;margin:0 auto;padding:0 16px}
+
+/* Header */
+.site-header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0));border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:28px;height:28px;fill:var(--brand)}
+.brand h1{font-size:18px;margin:0}
+.tag{margin:2px 0 0 0;font-size:12px;color:var(--muted)}
+.actions{display:flex;gap:8px}
+
+/* Hero */
+.hero{padding:32px 0 18px}
+.hero h2{margin:0 0 8px;font-size:28px;line-height:1.2}
+.hero p{margin:0;color:var(--muted)}
+
+/* Controls */
+.controls{margin:10px 0 18px}
+.control-row{display:grid;grid-template-columns:1fr repeat(5, minmax(120px, 180px)) 100px;gap:10px}
+.input,.select,.btn,.textarea{border:1px solid rgba(255,255,255,.12);background:var(--card);color:var(--text);border-radius:12px;padding:10px 12px;outline:none}
+.input:focus,.select:focus,.textarea:focus{box-shadow:0 0 0 4px var(--ring);border-color:transparent}
+.btn{cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.18)}
+.btn:active{transform:translateY(1px)}
+.chips{margin-top:8px;color:var(--muted);font-size:12px}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.content{display:grid;gap:12px}
+.sidebar{display:grid;gap:12px;align-content:start}
+
+/* Card */
+.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.card-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.card-body{padding:14px}
+.title{margin:4px 0 8px;font-size:18px}
+.notes{margin:0 0 8px;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:rgba(123,164,255,.16);color:#cfe0ff;border:1px solid rgba(123,164,255,.28);font-size:12px}
+.badge + .dot{margin:0 6px}
+.dot{width:4px;height:4px;background:rgba(255,255,255,.2);border-radius:50%;display:inline-block}
+.icon-btn{all:unset;cursor:pointer;font-size:18px;padding:6px 8px;border-radius:10px}
+.icon-btn:hover{background:rgba(255,255,255,.06)}
+
+/* QA list */
+summary{cursor:pointer;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▼";font-size:12px;margin-left:8px;color:var(--muted)}
+details[open] summary::after{content:"▲"}
+.qa{list-style:none;padding:6px 0 0;margin:0;display:grid;gap:10px}
+.qa li{background:rgba(255,255,255,.03);padding:10px;border-radius:12px;border:1px dashed rgba(255,255,255,.12)}
+.qa .meta{display:flex;gap:6px;margin-bottom:6px}
+.qa .ans{color:var(--muted);margin-top:4px}
+
+/* Sidebar */
+.textarea{width:100%;resize:vertical}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.chat-box{height:160px;overflow:auto;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:8px;margin-bottom:8px}
+.chat-msg{margin:6px 0}
+.chat-msg .me{color:#cfe0ff}
+.chat-msg .bot{color:var(--accent)}
+.file{position:relative;overflow:hidden}
+.file input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+/* Footer */
+.site-footer{padding:28px 0;color:var(--muted)}
+.site-footer a{color:inherit}
+
+/* Responsive */
+@media (max-width: 980px){
+  .grid{grid-template-columns:1fr}
+  .control-row{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width: 560px){
+  .control-row{grid-template-columns:1fr 1fr}
+}
