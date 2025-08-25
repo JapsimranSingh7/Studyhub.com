@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StudyHub A–Z • Classes 4–10</title>
+  <meta name="description" content="Free notes, extra questions, important questions with answers for Classes 4–10 – English, Maths, Science, SST. Filters, bookmarks, notes, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- =================== HEADER =================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v2H4zM4 9h16v2H4zM4 14h10v2H4zM4 19h8v2H4z"/></svg>
+        <div>
+          <h1>StudyHub A–Z</h1>
+          <p class="tag">Classes 4–10 • English • Maths • Science • SST</p>
+        </div>
+      </div>
+      <nav class="actions">
+        <button id="btn-print" class="btn ghost" title="Print/Save PDF">Print</button>
+        <button id="btn-theme" class="btn ghost" aria-label="Toggle theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =================== HERO =================== -->
+  <section class="hero">
+    <div class="container">
+      <h2>Everything you need to study – notes, extra & important questions with answers.</h2>
+      <p>Filter by class, subject, chapter-type, difficulty, or search anything. Bookmark topics and write your own notes.</p>
+    </div>
+  </section>
+
+  <!-- =================== CONTROLS =================== -->
+  <section class="container controls">
+    <div class="control-row">
+      <input id="q" class="input" type="search" placeholder="Search chapter, topic, question…" />
+      <select id="class" class="select"><option value="">Class</option></select>
+      <select id="subject" class="select">
+        <option value="">Subject</option>
+        <option>English</option>
+        <option>Maths</option>
+        <option>Science</option>
+        <option>SST</option>
+      </select>
+      <select id="strand" class="select"><option value="">Chapter Type</option></select>
+      <select id="level" class="select"><option value="">Difficulty</option><option>Easy</option><option>Medium</option><option>Hard</option></select>
+      <button id="reset" class="btn">Reset</button>
+    </div>
+    <div class="chips" id="stats">0 results</div>
+  </section>
+
+  <!-- =================== MAIN GRID =================== -->
+  <main class="container grid">
+    <section class="content" id="cards"></section>
+    <aside class="sidebar">
+      <!-- Notes Pad -->
+      <div class="card">
+        <div class="card-head"><h3>📝 Your Study Notes</h3></div>
+        <div class="card-body">
+          <textarea id="mynotes" rows="10" class="textarea" placeholder="Write formulas, key lines, reminders…"></textarea>
+          <div class="btn-row">
+            <button class="btn" id="save-notes">Save Notes</button>
+            <button class="btn ghost" id="clear-notes">Clear</button>
+            <button class="btn ghost" id="copy-notes">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bookmarks Panel -->
+      <div class="card">
+        <div class="card-head"><h3>🔖 Bookmarks</h3></div>
+        <div class="card-body" id="bookmarks">No bookmarks yet.</div>
+      </div>
+
+      <!-- Chat Example (local, rule-based) -->
+      <div class="card">
+        <div class="card-head"><h3>💬 Quick Chat (Example)</h3></div>
+        <div class="card-body">
+          <div class="chat-box" id="chat-log"></div>
+          <div class="chat-row">
+            <input id="chat-input" class="input" placeholder="Ask e.g., 'Ohm's Law formula'" />
+            <button id="chat-send" class="btn">Send</button>
+          </div>
+          <p class="muted">This is a simple on-page FAQ demo. You can plug a real chatbot later.</p>
+        </div>
+      </div>
+
+      <!-- Export/Import Data -->
+      <div class="card">
+        <div class="card-head"><h3>⬇️ Data Tools</h3></div>
+        <div class="card-body">
+          <div class="btn-row">
+            <button id="export-json" class="btn">Export Sample JSON</button>
+            <label class="btn ghost file">
+              Import JSON
+              <input type="file" id="import-json" accept="application/json" hidden />
+            </label>
+          </div>
+          <p class="muted">Use this to extend all classes/chapters without editing code.</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- =================== FOOTER =================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> StudyHub A–Z • Built for learners in India • <a href="#" id="scroll-top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <template id="card-tpl">
+    <article class="card">
+      <div class="card-head">
+        <div class="meta">
+          <span class="badge class"></span>
+          <span class="dot"></span>
+          <span class="badge subject"></span>
+          <span class="dot"></span>
+          <span class="badge strand"></span>
+        </div>
+        <button class="icon-btn bookmark" title="Toggle bookmark" aria-label="Bookmark">☆</button>
+      </div>
+      <div class="card-body">
+        <h3 class="title"></h3>
+        <p class="notes"></p>
+        <details>
+          <summary>Extra & Important Questions</summary>
+          <ul class="qa"></ul>
+        </details>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
